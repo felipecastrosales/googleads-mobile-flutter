@@ -20,6 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:developer';
 
+import 'ad_banner_animated_example.dart';
 import 'anchored_adaptive_example.dart';
 import 'fluid_example.dart';
 import 'inline_adaptive_example.dart';
@@ -35,7 +36,7 @@ void main() {
 
 // You can also test with your own ad unit IDs by registering your device as a
 // test device. Check the logs for your device's ID value.
-const String testDevice = 'YOUR_DEVICE_ID';
+const String testDevice = '';
 const int maxFailedLoadAttempts = 3;
 
 class MyApp extends StatefulWidget {
@@ -55,6 +56,7 @@ class _MyAppState extends State<MyApp> {
   static const rewardedInterstitialButtonText = 'RewardedInterstitialAd';
   static const fluidButtonText = 'Fluid';
   static const inlineAdaptiveButtonText = 'Inline adaptive';
+  static const adBannerAnimatedButtonText = 'AdBannerAnimated Example';
   static const anchoredAdaptiveButtonText = 'Anchored adaptive';
   static const nativeTemplateButtonText = 'Native template';
   static const webviewExampleButtonText = 'Register WebView';
@@ -271,6 +273,13 @@ class _MyAppState extends State<MyApp> {
                             builder: (context) => InlineAdaptiveExample()),
                       );
                       break;
+                    case adBannerAnimatedButtonText:
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AdBannerAnimatedExample()),
+                      );
+                      break;
                     case anchoredAdaptiveButtonText:
                       Navigator.push(
                         context,
@@ -323,6 +332,10 @@ class _MyAppState extends State<MyApp> {
                   PopupMenuItem<String>(
                     value: inlineAdaptiveButtonText,
                     child: Text(inlineAdaptiveButtonText),
+                  ),
+                  PopupMenuItem<String>(
+                    value: adBannerAnimatedButtonText,
+                    child: Text(adBannerAnimatedButtonText),
                   ),
                   PopupMenuItem<String>(
                     value: anchoredAdaptiveButtonText,
